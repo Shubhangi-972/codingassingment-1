@@ -106,7 +106,7 @@ app.get("/todos/", async (request, response) => {
             ) {
                 getTodosQuery = `
                 SELECT * FROM todo WHERE category='${category}' AND status='${status}';`;
-                data await database.all(getTodosQuery);
+                data = await database.all(getTodosQuery);
                 response.send(data.map((eachItem) => outPutResult(eachItem)));
             } else {
                 response.status(400);
@@ -191,7 +191,7 @@ app.get("/todos/", async (request, response) => {
             }
         break;
 
-        default;
+    default:
         getTodosQuery = `select * from todo;`;
         data = await database.all(getTodosQuery);
         response.send(data.map((eachItem) => outPutResult(eachItem)));
