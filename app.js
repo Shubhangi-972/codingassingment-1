@@ -161,7 +161,7 @@ app.get("/todos/", async (request, response) => {
       break;
 
     case hasStatusProperty(request.query):
-      if (status === "TO GO" || status === "IN PROGRESS" || status === "DONE") {
+      if (status === "TO DO" || status === "IN PROGRESS" || status === "DONE") {
         getTodosQuery = `SELECT * FROM todo WHERE status = '${status}';`;
         data = await database.all(getTodosQuery);
         response.send(data.map((eachItem) => outPutResult(eachItem)));
